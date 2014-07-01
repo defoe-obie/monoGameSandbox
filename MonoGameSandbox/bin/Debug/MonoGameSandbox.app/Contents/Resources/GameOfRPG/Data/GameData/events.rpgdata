@@ -1,0 +1,113 @@
+﻿//---------------------------------------------------- - - -  -  -   -     -           -
+// Format
+//---------------------------------------------------- - - -  -  -   -     -           -
+// 
+// event_id
+// mapid
+// x tile location in map
+// y tile location in map
+// sprite filename, or "none" for no image
+// movingsprite: true or false			
+// texturerows, texturecolumns, thisrow, thiscolumn
+//---------------------------------------------------- - - -  -  -   -     -           -
+// Everthing else is a series of pairs of strings and data, the string indicates the 
+// command, and the data is the data what goes with it. The idea is to make writing these
+// scripts intuitive. 
+//---------------------------------------------------- - - -  -  -   -     -           -
+//
+// trigger:		trigger that starts the event
+//		touch, query, none, automatic
+// beginonswitch:
+//		switchID
+// beginonvariable:
+//		variableID,operator,amount		operator (<,<=,>,>=,==), on true for this function
+// animated:	whether the sprite should be animated or still
+//		true, false
+// movepattern:
+//		repeat						repeats the move pattern if bool is true
+//		ignore						ignores impossible moves if bool is true
+//		move,direction,amount		move in a specified direction (up, down, left, right, towards, away, random) by amount tiles
+//		face,direction				face a specified direction
+//		turn,direction				turn in specified direction (left, right, around, 360)
+//		wait,amount					wait for amount turns
+// onbegin:				this section is run when the event begins
+//		message
+//
+//---------------------------------------------------- - - -  -  -   -     -           -
+// Perhaps we should work with this and go from there.
+beginevent
+0
+0
+3
+3
+nyrehm_spearmaster_01
+false
+4
+4
+0
+0
+beginpage
+trigger
+query
+message
+Hello There.
+switch
+0,flip
+endpage
+beginpage
+trigger
+query
+requirement
+switch,0,true
+message
+Now, the switch has been changed
+switch
+0,flip
+endpage
+endevent
+
+beginevent
+1
+0
+15
+4
+nyrehm_spearmaster_01
+true
+4
+4
+0
+0
+beginpage
+movepattern
+repeat
+move,random,1
+move,down,4
+face,left,1
+face,right,1
+face,left,1
+face,right,1
+wait,5
+endpattern
+trigger
+query
+requirement
+switch,0,false
+message
+Please tell me this works!
+message
+Message Number 2
+message
+Message Number 3
+endpage
+beginpage
+movepattern
+uselast
+endpattern
+trigger
+query
+requirement
+switch,0,true
+message
+Just checking
+endpage
+endevent

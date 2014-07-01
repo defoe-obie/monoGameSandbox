@@ -1,0 +1,1 @@
+Jun 26 21:34:16 this.local MonoGameSandbox[13745] <Error>: The function `CGContextErase' is obsolete and will be removed in an upcoming update. Unfortunately, this application, or a library it uses, is using this obsolete function, and is thereby contributing to an overall degradation of system performance.
